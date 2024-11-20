@@ -1,0 +1,18 @@
+{
+  "name": "apcondenser",
+  "private": true,
+  "version": "0.0.0",
+  "author": "Zach Parks <zach@alliware.com>",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  },
+  "dependencies": {
+    "archipelago.js": "^2.0.2"
+  }
+}
