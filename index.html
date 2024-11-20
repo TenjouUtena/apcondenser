@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vite App</title>
+    <title>Archipeligo Condenser</title>
 </head>
 <body>
 <div id="app">
     <header>
         <div>
+            <input id="room1-roomname" type="text" placeholder="Room #1 Name">
             <input id="room1-hostname" type="text" placeholder="Room #1 Address">
             <input id="room1-username" type="text" placeholder="Room #1 Monitor Slot">
             <input id="room1-password" type="password" placeholder="Room #1 Password">
             <button id="room1-connect">Connect</button>
         </div>
         <div>
+            <input id="room2-roomname" type="text" placeholder="Room #2 Name">
             <input id="room2-hostname" type="text" placeholder="Room #2 Address">
             <input id="room2-username" type="text" placeholder="Room #2 Monitor Slot">
             <input id="room2-password" type="password" placeholder="Room #2 Password">
             <button id="room2-connect">Connect</button>
         </div>
+        <input id="timeout" type="text" placeholder="Delay">
     </header>
     <main id="chat">
 
     </main>
 </div>
-<script type="module" src="/main.js"></script>
+    <script type="module" src="/main.js"></script>
 </body>
 </html>

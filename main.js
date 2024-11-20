@@ -5,11 +5,14 @@ const chat = document.getElementById("chat");
 
 const clients = [new Client(), new Client()];
 
+var delay = 0;
+
 // supports an arbitrary amount of clients, just add more above and add appropriate inputs to HTML.
 for (let i = 0; i < clients.length; i++) {
     const client = clients[i];
     const identifier = `room${i + 1}`;
 
+    const roomname =  document.getElementById(`${identifier}-roomname`);
     const hostname = document.getElementById(`${identifier}-hostname`);
     const username = document.getElementById(`${identifier}-username`);
     const password = document.getElementById(`${identifier}-password`);
@@ -51,7 +54,10 @@ for (let i = 0; i < clients.length; i++) {
         const container = document.createElement("div");
 
         const prefix = document.createElement("span");
-        prefix.innerText = `[Room #${i + 1}]: `;
+        if(roomname)
+            prefix.innerText = `[${roomname.value}]: `
+        else
+            prefix.innerText = `[Room #${i + 1}]: `;
         container.appendChild(prefix);
 
         for (const node of nodes) {
@@ -95,9 +101,20 @@ for (let i = 0; i < clients.length; i++) {
             container.appendChild(element);
         }
 
-        addChat(container);
+        setTimeout(
+            addChat,
+            delay,
+        container);
     });
 }
+
+function setDelay(e) {
+    const d = parseInt(e.target.value, 10)
+    delay = (isNaN(d) ? 0 : d)*1000
+}
+
+const to = document.getElementById("timeout");
+to.addEventListener("change", setDelay);
 
 function addChat(element) {
     chat.appendChild(element);
